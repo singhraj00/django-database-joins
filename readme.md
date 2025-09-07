@@ -130,9 +130,13 @@ print("Total Employees:", total_employees['total'])
 ✅ Key Takeaways
 
 ✔ GROUP BY helps group data by one or more columns and apply aggregation
+
 ✔ Django ORM’s annotate() is equivalent to GROUP BY
+
 ✔ Aggregation functions like Count, Sum, Avg, etc., are used inside annotate() or aggregate()
+
 ✔ aggregate() is used for global summaries without grouping
+
 ✔ Combining filters and annotations makes complex data queries simple and efficient
 
 
