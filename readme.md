@@ -45,7 +45,7 @@ Common Functions:
 Django abstracts SQL operations into ORM methods, so you don’t write raw SQL queries.
 
 Example Models:
-
+```
 class Department(models.Model):
     name = models.CharField(max_length=100)
 
@@ -54,72 +54,74 @@ class Employee(models.Model):
     salary = models.DecimalField(max_digits=10, decimal_places=2)
     department = models.ForeignKey(Department, on_delete=models.SET_NULL, null=True)
 
+```
 
 ---
 
 ✅ Example 1 – Count Employees per Department
 
+```
 from django.db.models import Count
 
 departments = Department.objects.annotate(employee_count=Count('employee'))
 
 for dept in departments:
     print(dept.name, dept.employee_count)
-
+```
 ➡ Groups employees by department and counts them.
 
 
 ---
 
 ✅ Example 2 – Sum of Salaries per Department
-
+```
 from django.db.models import Sum
 
 departments = Department.objects.annotate(total_salary=Sum('employee__salary'))
 
 for dept in departments:
     print(dept.name, dept.total_salary)
-
+```
 ➡ Calculates the total salary in each department.
 
 
 ---
 
 ✅ Example 3 – Average Salary per Department
-
+```
 from django.db.models import Avg
 
 departments = Department.objects.annotate(avg_salary=Avg('employee__salary'))
 
 for dept in departments:
     print(dept.name, dept.avg_salary)
-
+```
 ➡ Finds the average salary for each department.
 
 
 ---
 
 ✅ Example 4 – Filter Based on Aggregation
-
+```
 departments = Department.objects.annotate(employee_count=Count('employee')) \
                                 .filter(employee_count__gt=5)
 
 for dept in departments:
     print(dept.name, dept.employee_count)
-
+```
 ➡ Shows departments with more than 5 employees.
 
 
 ---
 
 ✅ Example 5 – Overall Summary with aggregate()
-
+```
 from django.db.models import Count
 
 total_employees = Employee.objects.aggregate(total=Count('id'))
 
 print("Total Employees:", total_employees['total'])
-
+```
 ➡ Gives a summary across all records without grouping.
 
 
