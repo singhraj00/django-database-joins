@@ -69,19 +69,19 @@ for emp in employees:
     print(emp.name, emp.department.name, [p.name for p in emp.projects.all()])
 ```
 
-✔ Efficient queries
-✔ Avoids redundant database hits
-✔ Handles complex data relationships smoothly
+- ✔ Efficient queries
+- ✔ Avoids redundant database hits
+- ✔ Handles complex data relationships smoothly
 
 
 ---
 
 📂 Why This Matters
 
-✅ Faster query performance
-✅ Cleaner and more maintainable code
-✅ Scales well for larger datasets
-✅ Essential for building dashboards, APIs, and admin interfaces
+- ✅ Faster query performance
+- ✅ Cleaner and more maintainable code
+- ✅ Scales well for larger datasets
+- ✅ Essential for building dashboards, APIs, and admin interfaces
 
 
 ---
