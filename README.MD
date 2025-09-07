@@ -76,39 +76,39 @@ class Employee(models.Model):
 
 ---
 
-# ✅ Why Not Index Every Column?
+### ✅ Why Not Index Every Column?
 
-# It may seem like indexing all columns would make queries faster,
+- It may seem like indexing all columns would make queries faster,
 # but it’s not practical.
 
-# 📌 1. Indexes Use Extra Storage
+#### 📌 1. Indexes Use Extra Storage
 # More indexes → more disk space required
 
-# 📌 2. Indexes Slow Down Write Operations
+#### 📌 2. Indexes Slow Down Write Operations
 # Insert, update, delete queries must update indexes → more overhead
 
-# 📌 3. Not Every Column Needs Fast Access
+#### 📌 3. Not Every Column Needs Fast Access
 # Index only those columns that are frequently searched, joined, or sorted
 
-# 📌 4. Indexes Can Lead to Poor Query Plans
+#### 📌 4. Indexes Can Lead to Poor Query Plans
 # Too many indexes can confuse the optimizer and slow down queries
 
-# ✅ When Should You Add Indexes?
+### ✅ When Should You Add Indexes?
 
-# ✔ For columns used in filters, joins, or sorting
-# ✔ For columns that need uniqueness constraints
-# ✔ When performance bottlenecks are identified in queries
+#### ✔ For columns used in filters, joins, or sorting
+#### ✔ For columns that need uniqueness constraints
+#### ✔ When performance bottlenecks are identified in queries
 
-# ✅ Example
+### ✅ Example
 
-# Column                 Indexed?  Reason
-# --------------------   -------   ----------------------------------------
-# email                 ✅        Frequently searched and must be unique
-# department_id         ✅        Used in joins with departments table
-# profile_description   ❌        Rarely searched → indexing unnecessary
-# created_at            ✅        Often filtered or sorted by date
+#### Column                 Indexed?  Reason
+##### --------------------   -------   ----------------------------------------
+#### email                 ✅        Frequently searched and must be unique
+#### department_id         ✅        Used in joins with departments table
+#### profile_description   ❌        Rarely searched → indexing unnecessary
+#### created_at            ✅        Often filtered or sorted by date
 
-# ✅ Best Practices
+#### ✅ Best Practices
 
 # ✔ Use indexing thoughtfully – not every column needs it
 # ✔ Analyze your queries before adding indexes
