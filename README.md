@@ -69,11 +69,10 @@ for emp in employees:
     print(emp.name, emp.department.name, [p.name for p in emp.projects.all()])
 ```
 
-✔ Efficient queries
+- ✔ Efficient queries
 
-✔ Avoids redundant database hits
-
-✔ Handles complex data relationships smoothly
+- ✔ Avoids redundant database hits
+- ✔ Handles complex data relationships smoothly
 
 
 ---
